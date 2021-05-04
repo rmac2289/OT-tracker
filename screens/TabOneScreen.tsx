@@ -1,9 +1,14 @@
-import * as React from "react";
-import { StyleSheet } from "react-native";
+import React, { useState } from "react";
+import { Button, StyleSheet } from "react-native";
+import AddOtModal from "../components/AddOtModal";
 import ItemList from "../components/ItemList";
 import { Text, View } from "../components/Themed";
 
 export default function TabOneScreen() {
+  const [modalToggle, setModalToggle] = useState(false);
+  const toggleModal = () => {
+    setModalToggle(!modalToggle);
+  };
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Upcoming OT</Text>
@@ -13,6 +18,8 @@ export default function TabOneScreen() {
         darkColor="rgba(255,255,255,0.1)"
       />
       <ItemList />
+      <Button onPress={toggleModal} title="add ot" />
+      <AddOtModal isModalOpen={modalToggle} toggleModal={toggleModal} />
     </View>
   );
 }
