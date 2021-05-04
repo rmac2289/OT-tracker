@@ -9,6 +9,7 @@ export default function TabOneScreen() {
   const toggleModal = () => {
     setModalToggle(!modalToggle);
   };
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Upcoming OT</Text>
