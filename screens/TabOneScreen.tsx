@@ -12,12 +12,6 @@ export default function TabOneScreen() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Upcoming OT</Text>
-      <View
-        style={styles.separator}
-        lightColor="#eee"
-        darkColor="rgba(255,255,255,0.1)"
-      />
       <ItemList />
       <Button onPress={toggleModal} title="add ot" />
       <AddOtModal isModalOpen={modalToggle} toggleModal={toggleModal} />
@@ -34,10 +28,5 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 20,
     fontWeight: "bold",
-  },
-  separator: {
-    marginVertical: 30,
-    height: 1,
-    width: "80%",
   },
 });

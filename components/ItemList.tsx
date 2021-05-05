@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { StyleSheet, View, Text, Button, Platform } from "react-native";
+import { StyleSheet, View, Text, ScrollView, Platform } from "react-native";
 import * as Calendar from "expo-calendar";
 
 interface Props {}
@@ -28,27 +28,41 @@ const ItemList = (props: Props) => {
   }, []);
 
   return (
-    <View>
+    <ScrollView style={styles.scrollview}>
       {ot.map((event: Calendar.Event, index: number) => {
         return (
-          <View style={styles.otDay}>
-            <Text>
-              {new Date(event.startDate).toString().slice(0, 21)} -{" "}
+          <View key={index} style={styles.otDay}>
+            <Text style={styles.text}>
+              {new Date(event.startDate).toString().slice(0, 4)},{" "}
+              {new Date(event.startDate).toString().slice(4, 11)}
+            </Text>
+
+            <Text style={styles.text}>
+              {new Date(event.startDate).toString().slice(16, 21)}-
               {new Date(event.endDate).toString().slice(16, 21)}
             </Text>
           </View>
         );
       })}
-    </View>
+    </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
   otDay: {
-    padding: 5,
+    padding: 10,
     borderColor: "black",
-    borderWidth: 2,
-    margin: 10,
+    borderBottomWidth: 2,
+    margin: 5,
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
+  },
+  text: {
+    fontSize: 20,
+  },
+  scrollview: {
+    width: "100%",
   },
 });
 
