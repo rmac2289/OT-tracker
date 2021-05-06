@@ -1,27 +1,26 @@
 import React, { useEffect, useState } from "react";
 import { StyleSheet, View, Text, ScrollView, Platform } from "react-native";
 import * as Calendar from "expo-calendar";
+import CalendarItem from "./CalendarItem";
+import { calendar_id } from "../config";
+import { formatDate } from "../lib/formatDate";
 
-interface Props {}
-
-const ItemList = (props: Props) => {
-  const [ot, setOt] = useState<any>([]);
+const ItemList = () => {
+  const [ot, setOt] = useState<Calendar.Event[]>([]);
   useEffect(() => {
     (async () => {
       const { status } = await Calendar.requestCalendarPermissionsAsync();
       if (status === "granted") {
-        let id = "CEE92FC3-0669-4308-B0EA-D84FBC331F52";
         const calendars = await Calendar.getEventsAsync(
-          [id],
+          [calendar_id],
           new Date(),
           new Date(2021, 8)
         );
         let events = { calendars };
 
         let filtered = events.calendars.filter(
-          (v) => v.title === "Ross Forced OT"
+          (event) => event.title === "Ross Forced OT"
         );
-        console.log(filtered);
         setOt(filtered);
       }
     })();
@@ -31,17 +30,13 @@ const ItemList = (props: Props) => {
     <ScrollView style={styles.scrollview}>
       {ot.map((event: Calendar.Event, index: number) => {
         return (
-          <View key={index} style={styles.otDay}>
-            <Text style={styles.text}>
-              {new Date(event.startDate).toString().slice(0, 4)},{" "}
-              {new Date(event.startDate).toString().slice(4, 11)}
-            </Text>
-
-            <Text style={styles.text}>
-              {new Date(event.startDate).toString().slice(16, 21)}-
-              {new Date(event.endDate).toString().slice(16, 21)}
-            </Text>
-          </View>
+          <CalendarItem
+            key={index}
+            dateDay={formatDate(new Date(event.startDate), 0, 4)}
+            dateMonth={formatDate(new Date(event.startDate), 4, 11)}
+            dateTimeStart={formatDate(new Date(event.startDate), 16, 21)}
+            dateTimeEnd={formatDate(new Date(event.endDate), 16, 21)}
+          />
         );
       })}
     </ScrollView>
@@ -67,3 +62,13 @@ const styles = StyleSheet.create({
 });
 
 export default ItemList;
+// <View key={index} style={styles.otDay}>
+// <Text style={styles.text}>
+
+// </Text>
+
+// <Text style={styles.text}>
+//   {new Date(event.startDate).toString().slice(16, 21)}-
+//   {new Date(event.endDate).toString().slice(16, 21)}
+// </Text>
+// </View>

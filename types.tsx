@@ -2,6 +2,7 @@
  * Learn more about using TypeScript with React Navigation:
  * https://reactnavigation.org/docs/typescript/
  */
+import { SyntheticEvent } from "react";
 
 export type RootStackParamList = {
   Root: undefined;
@@ -20,3 +21,10 @@ export type TabOneParamList = {
 export type TabTwoParamList = {
   TabTwoScreen: undefined;
 };
+
+export type Event = SyntheticEvent<
+  Readonly<{
+    timestamp: number;
+  }>,
+  globalThis.Event
+>;
