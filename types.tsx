@@ -10,7 +10,7 @@ export type RootStackParamList = {
 };
 
 export type BottomTabParamList = {
-  OT: undefined;
+  Overtime: undefined;
   TabTwo: undefined;
 };
 

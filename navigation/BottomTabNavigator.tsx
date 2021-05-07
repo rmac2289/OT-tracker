@@ -21,15 +21,20 @@ export default function BottomTabNavigator() {
 
   return (
     <BottomTab.Navigator
-      initialRouteName="OT"
-      tabBarOptions={{ activeTintColor: Colors[colorScheme].tint }}
+      initialRouteName="Overtime"
+      tabBarOptions={{
+        activeTintColor: Colors[colorScheme].tint,
+        activeBackgroundColor: "rgba(0,0,0,0.3)",
+        inactiveBackgroundColor: "lightgrey",
+        style: { borderTopWidth: 0 },
+      }}
     >
       <BottomTab.Screen
-        name="OT"
+        name="Overtime"
         component={TabOneNavigator}
         options={{
           tabBarIcon: ({ color }) => (
-            <TabBarIcon name="ios-code" color={color} />
+            <TabBarIcon name="cash-outline" color={color} />
           ),
         }}
       />
@@ -38,7 +43,7 @@ export default function BottomTabNavigator() {
         component={TabTwoNavigator}
         options={{
           tabBarIcon: ({ color }) => (
-            <TabBarIcon name="ios-code" color={color} />
+            <TabBarIcon name="calendar-outline" color={color} />
           ),
         }}
       />
@@ -65,7 +70,11 @@ function TabOneNavigator() {
       <TabOneStack.Screen
         name="TabOneScreen"
         component={TabOneScreen}
-        options={{ headerTitle: "Upcoming OT" }}
+        options={{
+          headerShown: false,
+          headerTransparent: true,
+          headerTitleStyle: { fontFamily: "Menlo", fontSize: 20 },
+        }}
       />
     </TabOneStack.Navigator>
   );

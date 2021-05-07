@@ -14,13 +14,16 @@ export default function TabOneScreen() {
 
   return (
     <View style={modalOpen ? styles.containerBlur : styles.container}>
+      <View style={styles.titleView}>
+        <MonoText style={styles.titleText}>Upcoming Overtime</MonoText>
+      </View>
       <ItemList />
       <TouchableOpacity
         style={styles.addOt}
         disabled={modalOpen}
         onPress={toggleModal}
       >
-        <MonoText style={styles.addOtText}>add new shift</MonoText>
+        <MonoText style={styles.addOtText}>+ add new shift +</MonoText>
       </TouchableOpacity>
       <AddOtModal isModalOpen={modalOpen} toggleModal={toggleModal} />
     </View>
@@ -31,6 +34,16 @@ const styles = StyleSheet.create({
   container: {
     alignItems: "center",
     height: "100%",
+    backgroundColor: "lightgrey",
+    paddingTop: 50,
+  },
+  titleView: {
+    marginBottom: 20,
+  },
+  titleText: {
+    fontSize: 20,
+    backgroundColor: "lightgrey",
+    fontWeight: "600",
   },
   containerBlur: {
     alignItems: "center",
@@ -38,12 +51,11 @@ const styles = StyleSheet.create({
     opacity: 0.35,
   },
   addOt: {
-    width: Dimensions.get("screen").width * 0.75,
+    width: Dimensions.get("screen").width,
     padding: 10,
     backgroundColor: "black",
     color: "white",
-    margin: 5,
-    borderRadius: 4,
+    marginBottom: 0,
     justifyContent: "center",
     alignItems: "center",
     shadowColor: "#000",
@@ -55,7 +67,8 @@ const styles = StyleSheet.create({
     shadowRadius: 4,
     elevation: 5,
     height: 75,
-    borderWidth: 2,
+    borderTopWidth: 2,
+    borderBottomWidth: 2,
     borderColor: "rgba(255,255,255,0.2)",
   },
   addOtText: {

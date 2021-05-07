@@ -53,13 +53,3 @@ const styles = StyleSheet.create({
 });
 
 export default ItemList;
-// <View key={index} style={styles.otDay}>
-// <Text style={styles.text}>
-
-// </Text>
-
-// <Text style={styles.text}>
-//   {new Date(event.startDate).toString().slice(16, 21)}-
-//   {new Date(event.endDate).toString().slice(16, 21)}
-// </Text>
-// </View>
