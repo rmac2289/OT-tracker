@@ -1,5 +1,7 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
+import { MonoText } from "./StyledText";
+import { TouchableHighlight } from "react-native-gesture-handler";
 
 interface Props {
   dateDay: string;
@@ -16,25 +18,33 @@ const CalendarItem = ({
 }: Props) => {
   return (
     <View style={styles.otDay}>
-      <Text style={styles.text}>
+      <MonoText style={styles.text}>
         {dateDay}, {dateMonth}
-      </Text>
-      <Text style={styles.text}>
-        {dateTimeStart} - {dateTimeEnd}
-      </Text>
+      </MonoText>
+      <MonoText style={styles.text}>
+        {dateTimeStart} to {dateTimeEnd}
+      </MonoText>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   otDay: {
-    padding: 10,
+    padding: 15,
     borderColor: "black",
-    borderBottomWidth: 2,
+    borderWidth: 1,
     margin: 5,
+    backgroundColor: "rgba(0,0,0,0.05)",
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-between",
+  },
+  rightButton: {
+    padding: 15,
+    borderColor: "black",
+    borderWidth: 1,
+    justifyContent: "center",
+    alignItems: "center",
   },
   text: {
     fontSize: 20,

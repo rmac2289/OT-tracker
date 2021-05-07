@@ -32,8 +32,8 @@ const ItemList = () => {
         return (
           <CalendarItem
             key={index}
-            dateDay={formatDate(new Date(event.startDate), 0, 4)}
-            dateMonth={formatDate(new Date(event.startDate), 4, 11)}
+            dateDay={formatDate(new Date(event.startDate), 0, 3)}
+            dateMonth={formatDate(new Date(event.startDate), 4, 10)}
             dateTimeStart={formatDate(new Date(event.startDate), 16, 21)}
             dateTimeEnd={formatDate(new Date(event.endDate), 16, 21)}
           />
@@ -44,15 +44,6 @@ const ItemList = () => {
 };
 
 const styles = StyleSheet.create({
-  otDay: {
-    padding: 10,
-    borderColor: "black",
-    borderBottomWidth: 2,
-    margin: 5,
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "space-between",
-  },
   text: {
     fontSize: 20,
   },

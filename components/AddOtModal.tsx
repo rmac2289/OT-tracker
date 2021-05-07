@@ -12,6 +12,7 @@ import * as Calendar from "expo-calendar";
 import DateTimePicker from "@react-native-community/datetimepicker";
 import { Event } from "../types";
 import { calendar_id } from "../config";
+import { MonoText } from "./StyledText";
 
 interface Props {
   isModalOpen: boolean;
@@ -49,15 +50,17 @@ const AddOtModal = ({ isModalOpen, toggleModal }: Props) => {
 
   return (
     <Modal
-      presentationStyle="formSheet"
+      presentationStyle="overFullScreen"
       animationType="slide"
       visible={isModalOpen}
+      transparent={true}
     >
       <View style={styles.modalView}>
         <View style={styles.dateInputs}>
-          <Text>New Shift</Text>
+          <MonoText style={styles.title}>New Shift</MonoText>
           <View style={styles.individualInput}>
-            <Text>Start:</Text>
+            <MonoText style={styles.dateText}>From</MonoText>
+
             <DateTimePicker
               testID="dateTimeStart"
               value={startDate}
@@ -69,7 +72,7 @@ const AddOtModal = ({ isModalOpen, toggleModal }: Props) => {
             />
           </View>
           <View style={styles.individualInput}>
-            <Text>End:</Text>
+            <MonoText style={styles.dateText}>To</MonoText>
             <DateTimePicker
               testID="dateTimeEnd"
               value={startDate}
@@ -82,11 +85,11 @@ const AddOtModal = ({ isModalOpen, toggleModal }: Props) => {
           </View>
         </View>
         <View>
-          <TouchableOpacity style={styles.closeButton} onPress={toggleModal}>
-            <Text style={styles.buttonText}>Close</Text>
-          </TouchableOpacity>
           <TouchableOpacity style={styles.addShiftButton} onPress={addEvent}>
-            <Text style={styles.buttonText}>Add Shift</Text>
+            <MonoText style={styles.buttonText}>Add Shift</MonoText>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.closeButton} onPress={toggleModal}>
+            <MonoText style={styles.buttonText}>Cancel</MonoText>
           </TouchableOpacity>
         </View>
       </View>
@@ -98,7 +101,7 @@ const styles = StyleSheet.create({
   modalView: {
     margin: 20,
     backgroundColor: "white",
-    borderRadius: 20,
+    borderRadius: 5,
     padding: 35,
     shadowColor: "#000",
     shadowOffset: {
@@ -108,10 +111,16 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 4,
     elevation: 5,
-    height: "95%",
+    height: "60%",
     justifyContent: "space-between",
     marginTop: "auto",
     marginBottom: "auto",
+  },
+  title: {
+    fontSize: 22,
+    fontWeight: "500",
+    width: "100%",
+    textAlign: "left",
   },
   dateInputs: {
     display: "flex",
@@ -120,12 +129,16 @@ const styles = StyleSheet.create({
   },
   individualInput: {
     width: "100%",
-    marginTop: 10,
+    marginTop: 20,
+  },
+  dateText: {
+    fontSize: 18,
+    fontWeight: "700",
   },
   closeButton: {
     width: "100%",
-    backgroundColor: "rgba(220,0,0,0.6)",
-    height: 40,
+    backgroundColor: "rgba(0,0,0,0.75)",
+    height: 60,
     marginTop: 10,
     padding: 5,
     alignItems: "center",
@@ -143,7 +156,7 @@ const styles = StyleSheet.create({
   addShiftButton: {
     width: "100%",
     backgroundColor: "rgba(0,0,200,0.6)",
-    height: 40,
+    height: 60,
     marginTop: 10,
     padding: 5,
     alignItems: "center",

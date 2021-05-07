@@ -4,6 +4,7 @@ import { TouchableOpacity } from "react-native-gesture-handler";
 import AddOtModal from "../components/AddOtModal";
 import ItemList from "../components/ItemList";
 import { Text, View } from "../components/Themed";
+import { MonoText } from "../components/StyledText";
 
 export default function TabOneScreen() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -12,14 +13,14 @@ export default function TabOneScreen() {
   };
 
   return (
-    <View style={styles.container}>
+    <View style={modalOpen ? styles.containerBlur : styles.container}>
       <ItemList />
       <TouchableOpacity
         style={styles.addOt}
         disabled={modalOpen}
         onPress={toggleModal}
       >
-        <Text style={styles.addOtText}>add new shift</Text>
+        <MonoText style={styles.addOtText}>add new shift</MonoText>
       </TouchableOpacity>
       <AddOtModal isModalOpen={modalOpen} toggleModal={toggleModal} />
     </View>
@@ -30,6 +31,11 @@ const styles = StyleSheet.create({
   container: {
     alignItems: "center",
     height: "100%",
+  },
+  containerBlur: {
+    alignItems: "center",
+    height: "100%",
+    opacity: 0.35,
   },
   addOt: {
     width: Dimensions.get("screen").width * 0.75,
@@ -48,6 +54,9 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 4,
     elevation: 5,
+    height: 75,
+    borderWidth: 2,
+    borderColor: "rgba(255,255,255,0.2)",
   },
   addOtText: {
     color: "white",
