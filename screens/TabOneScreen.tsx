@@ -1,19 +1,19 @@
 import React, { useState } from "react";
-import { Button, Dimensions, StyleSheet } from "react-native";
+import { Dimensions, StyleSheet } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import AddOtModal from "../components/AddOtModal";
 import ItemList from "../components/ItemList";
-import { Text, View } from "../components/Themed";
+import { View } from "../components/Themed";
 import { MonoText } from "../components/StyledText";
+import { Ionicons } from "@expo/vector-icons";
 
 export default function TabOneScreen() {
   const [modalOpen, setModalOpen] = useState(false);
   const toggleModal = () => {
     setModalOpen(!modalOpen);
   };
-
   return (
-    <View style={modalOpen ? styles.containerBlur : styles.container}>
+    <View style={modalOpen ? styles.containerBackground : styles.container}>
       <View style={styles.titleView}>
         <MonoText style={styles.titleText}>Upcoming Overtime</MonoText>
       </View>
@@ -23,7 +23,12 @@ export default function TabOneScreen() {
         disabled={modalOpen}
         onPress={toggleModal}
       >
-        <MonoText style={styles.addOtText}>+ add new shift +</MonoText>
+        <Ionicons
+          size={30}
+          name="add-outline"
+          color="white"
+          style={{ fontSize: 50, textAlign: "center" }}
+        />
       </TouchableOpacity>
       <AddOtModal isModalOpen={modalOpen} toggleModal={toggleModal} />
     </View>
@@ -45,35 +50,33 @@ const styles = StyleSheet.create({
     backgroundColor: "lightgrey",
     fontWeight: "600",
   },
-  containerBlur: {
+  containerBackground: {
     alignItems: "center",
     height: "100%",
     opacity: 0.35,
   },
   addOt: {
-    width: Dimensions.get("screen").width,
-    padding: 10,
+    width: 70,
+    height: 70,
+    borderRadius: 100,
     backgroundColor: "black",
     color: "white",
-    marginBottom: 0,
+    marginBottom: 15,
     justifyContent: "center",
     alignItems: "center",
     shadowColor: "#000",
+
     shadowOffset: {
       width: 0,
-      height: 2,
+      height: 4,
     },
     shadowOpacity: 0.25,
     shadowRadius: 4,
-    elevation: 5,
-    height: 75,
-    borderTopWidth: 2,
-    borderBottomWidth: 2,
-    borderColor: "rgba(255,255,255,0.2)",
+    elevation: 8,
   },
   addOtText: {
     color: "white",
-    fontSize: 20,
+    fontSize: 16,
     fontWeight: "700",
   },
   title: {

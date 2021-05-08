@@ -11,7 +11,7 @@ export type RootStackParamList = {
 
 export type BottomTabParamList = {
   Overtime: undefined;
-  TabTwo: undefined;
+  "All Shifts": undefined;
 };
 
 export type TabOneParamList = {

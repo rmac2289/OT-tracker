@@ -1,17 +1,17 @@
 import * as React from "react";
 import { StyleSheet } from "react-native";
+import Schedule from "../components/Schedule";
+import { MonoText } from "../components/StyledText";
 
 import { Text, View } from "../components/Themed";
 
 export default function TabTwoScreen() {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Tab Two</Text>
-      <View
-        style={styles.separator}
-        lightColor="#eee"
-        darkColor="rgba(255,255,255,0.1)"
-      />
+      <View style={styles.titleView}>
+        <MonoText style={styles.titleText}>All Shifts</MonoText>
+      </View>
+      <Schedule />
     </View>
   );
 }
@@ -21,6 +21,17 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
+    backgroundColor: "lightgrey",
+    paddingTop: 50,
+    height: "100%",
+  },
+  titleView: {
+    marginBottom: 20,
+  },
+  titleText: {
+    fontSize: 20,
+    backgroundColor: "lightgrey",
+    fontWeight: "600",
   },
   title: {
     fontSize: 20,

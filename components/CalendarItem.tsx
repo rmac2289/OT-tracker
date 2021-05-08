@@ -1,7 +1,6 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, StyleSheet } from "react-native";
 import { MonoText } from "./StyledText";
-import { TouchableHighlight } from "react-native-gesture-handler";
 
 interface Props {
   dateDay: string;

@@ -26,7 +26,11 @@ export default function BottomTabNavigator() {
         activeTintColor: Colors[colorScheme].tint,
         activeBackgroundColor: "rgba(0,0,0,0.3)",
         inactiveBackgroundColor: "lightgrey",
-        style: { borderTopWidth: 0 },
+        style: {
+          borderTopWidth: 0,
+          height: 50,
+        },
+        labelStyle: { fontFamily: "Menlo", fontSize: 10 },
       }}
     >
       <BottomTab.Screen
@@ -39,7 +43,7 @@ export default function BottomTabNavigator() {
         }}
       />
       <BottomTab.Screen
-        name="TabTwo"
+        name="All Shifts"
         component={TabTwoNavigator}
         options={{
           tabBarIcon: ({ color }) => (
@@ -88,7 +92,7 @@ function TabTwoNavigator() {
       <TabTwoStack.Screen
         name="TabTwoScreen"
         component={TabTwoScreen}
-        options={{ headerTitle: "Tab Two Title" }}
+        options={{ headerShown: false }}
       />
     </TabTwoStack.Navigator>
   );

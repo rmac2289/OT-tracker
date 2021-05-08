@@ -7,6 +7,7 @@ import {
   StyleSheet,
   Dimensions,
   TouchableOpacity,
+  Alert,
 } from "react-native";
 import * as Calendar from "expo-calendar";
 import DateTimePicker from "@react-native-community/datetimepicker";
@@ -33,10 +34,12 @@ const AddOtModal = ({ isModalOpen, toggleModal }: Props) => {
           endDate: endDate,
         });
         console.log(`Event ${newEvent} created.`);
+        Alert.alert(`Event added to calendar!`);
       }
     } catch (error) {
-      console.log(error);
+      Alert.alert(error.message);
     }
+    toggleModal();
   };
 
   const onChangeStart = (event: Event, selectedDate: Date | undefined) => {
