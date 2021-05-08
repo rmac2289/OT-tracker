@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { StyleSheet, View, Text, ScrollView, Platform } from "react-native";
+import { StyleSheet, ScrollView } from "react-native";
 import * as Calendar from "expo-calendar";
 import CalendarItem from "./CalendarItem";
 import { calendar_id } from "../config";

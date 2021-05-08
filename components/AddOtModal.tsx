@@ -1,19 +1,12 @@
 import React, { useState, SyntheticEvent } from "react";
-import {
-  View,
-  Text,
-  Modal,
-  Button,
-  StyleSheet,
-  Dimensions,
-  TouchableOpacity,
-  Alert,
-} from "react-native";
+import { View, Modal, StyleSheet, TouchableOpacity, Alert } from "react-native";
 import * as Calendar from "expo-calendar";
 import DateTimePicker from "@react-native-community/datetimepicker";
 import { Event } from "../types";
 import { calendar_id } from "../config";
 import { MonoText } from "./StyledText";
+import { theme } from "../constants/Colors";
+import { color } from "react-native-reanimated";
 
 interface Props {
   isModalOpen: boolean;
@@ -103,7 +96,7 @@ const AddOtModal = ({ isModalOpen, toggleModal }: Props) => {
 const styles = StyleSheet.create({
   modalView: {
     margin: 20,
-    backgroundColor: "white",
+    backgroundColor: theme.background,
     borderRadius: 5,
     padding: 35,
     shadowColor: "#000",
@@ -124,6 +117,7 @@ const styles = StyleSheet.create({
     fontWeight: "500",
     width: "100%",
     textAlign: "left",
+    color: theme.itemtext,
   },
   dateInputs: {
     display: "flex",
@@ -137,10 +131,11 @@ const styles = StyleSheet.create({
   dateText: {
     fontSize: 18,
     fontWeight: "700",
+    color: theme.itemtext,
   },
   closeButton: {
     width: "100%",
-    backgroundColor: "rgba(0,0,0,0.75)",
+    backgroundColor: theme.button,
     height: 60,
     marginTop: 10,
     padding: 5,
@@ -158,7 +153,7 @@ const styles = StyleSheet.create({
   },
   addShiftButton: {
     width: "100%",
-    backgroundColor: "rgba(0,0,200,0.6)",
+    backgroundColor: theme.itemtext,
     height: 60,
     marginTop: 10,
     padding: 5,

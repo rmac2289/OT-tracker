@@ -1,5 +1,6 @@
 import React from "react";
 import { View, StyleSheet } from "react-native";
+import { theme } from "../constants/Colors";
 import { MonoText } from "./StyledText";
 
 interface Props {
@@ -30,14 +31,16 @@ const CalendarItem = ({
 const styles = StyleSheet.create({
   otDay: {
     padding: 15,
-    borderColor: "black",
-    borderWidth: 1,
+    borderColor: theme.itemborder,
+    borderWidth: 2,
     margin: 5,
-    backgroundColor: "white",
+    marginLeft: 10,
+    marginRight: 10,
+    backgroundColor: theme.itembackground,
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-between",
-    shadowColor: "#000",
+    shadowColor: theme.shadow,
     shadowOffset: {
       width: 0,
       height: 2,
@@ -48,6 +51,7 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 20,
+    color: theme.itemtext,
   },
 });
 

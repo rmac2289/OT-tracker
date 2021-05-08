@@ -8,7 +8,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createStackNavigator } from "@react-navigation/stack";
 import * as React from "react";
 
-import Colors from "../constants/Colors";
+import Colors, { theme } from "../constants/Colors";
 import useColorScheme from "../hooks/useColorScheme";
 import TabOneScreen from "../screens/TabOneScreen";
 import TabTwoScreen from "../screens/TabTwoScreen";
@@ -23,11 +23,11 @@ export default function BottomTabNavigator() {
     <BottomTab.Navigator
       initialRouteName="Overtime"
       tabBarOptions={{
-        activeTintColor: Colors[colorScheme].tint,
-        activeBackgroundColor: "rgba(0,0,0,0.3)",
-        inactiveBackgroundColor: "lightgrey",
+        activeTintColor: theme.tablabel,
+        activeBackgroundColor: theme.tabactive,
+        inactiveBackgroundColor: theme.tabinactive,
         style: {
-          borderTopWidth: 0,
+          borderWidth: 0,
           height: 50,
         },
         labelStyle: { fontFamily: "Menlo", fontSize: 10 },
