@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Dimensions, StyleSheet, View, Text } from "react-native";
+import { Dimensions, StyleSheet, View } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import AddOtModal from "../components/AddOtModal";
 import ItemList from "../components/ItemList";
@@ -109,9 +109,5 @@ const styles = StyleSheet.create({
     color: "white",
     fontSize: 16,
     fontWeight: "700",
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: "bold",
   },
 });

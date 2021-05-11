@@ -1,35 +1,48 @@
 import { Ionicons } from "@expo/vector-icons";
 import React, { useContext, useState } from "react";
-import { View, Text, TouchableHighlight, StyleSheet } from "react-native";
+import { View, StyleSheet } from "react-native";
+import { TouchableOpacity } from "react-native-gesture-handler";
 import { theme } from "../constants/Colors";
 import { ModalContext } from "../context/modalContext";
 import ConfirmDeleteModal from "./ConfirmDeleteModal";
+import UpdateOtModal from "./UpdateOtModal";
 
 const ItemButton = ({ date, eventId }: { date: string; eventId: string }) => {
-  const [showModal, setShowModal] = useState(false);
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const [showUpdateModal, setShowUpdateModal] = useState(false);
   const [fadeBackground, setFadeBackground] = useContext(ModalContext);
 
-  const toggleModal = () => {
-    setShowModal(!showModal);
+  const toggleDeleteModal = () => {
+    setShowDeleteModal(!showDeleteModal);
     setFadeBackground(!fadeBackground);
   };
+  const toggleUpdateModal = () => {
+    setShowUpdateModal(!showUpdateModal);
+    setFadeBackground(!fadeBackground);
+  };
+
   return (
     <View style={styles.buttonContainer}>
-      <TouchableHighlight style={styles.editButton}>
+      <TouchableOpacity onPress={toggleUpdateModal} style={styles.editButton}>
         <View>
           <Ionicons color={theme.itemtext} size={30} name="create-outline" />
         </View>
-      </TouchableHighlight>
-      <TouchableHighlight onPress={toggleModal} style={styles.deleteButton}>
+      </TouchableOpacity>
+      <TouchableOpacity onPress={toggleDeleteModal} style={styles.deleteButton}>
         <View>
           <Ionicons color={theme.button} size={30} name="trash-outline" />
         </View>
-      </TouchableHighlight>
+      </TouchableOpacity>
       <ConfirmDeleteModal
         date={date}
         eventId={eventId}
-        toggleModal={toggleModal}
-        showModal={showModal}
+        toggleModal={toggleDeleteModal}
+        showModal={showDeleteModal}
+      />
+      <UpdateOtModal
+        eventId={eventId}
+        toggleUpdateModal={toggleUpdateModal}
+        showUpdateModal={showUpdateModal}
       />
     </View>
   );
@@ -45,12 +58,14 @@ const styles = StyleSheet.create({
   editButton: {
     height: 50,
     width: 50,
+    borderRadius: 25,
     justifyContent: "center",
     alignItems: "center",
   },
   deleteButton: {
     height: 50,
     width: 50,
+    borderRadius: 25,
     justifyContent: "center",
     alignItems: "center",
   },

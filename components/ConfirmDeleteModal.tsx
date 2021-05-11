@@ -1,9 +1,9 @@
-import React, { useContext } from "react";
-import { Modal, StyleSheet, Text, View } from "react-native";
-import { TouchableHighlight } from "react-native-gesture-handler";
+import React, { useState } from "react";
+import { Alert, Modal, StyleSheet, View } from "react-native";
+import { TouchableOpacity } from "react-native-gesture-handler";
 import { theme } from "../constants/Colors";
 import { MonoText } from "./StyledText";
-import { ModalContext } from "../context/modalContext";
+import * as Calendar from "expo-calendar";
 
 interface Props {
   showModal: boolean;
@@ -18,8 +18,24 @@ const ConfirmDeleteModal = ({
   eventId,
   date,
 }: Props) => {
-  const [fadeBackground, setFadeBackground] = useContext(ModalContext);
-  console.log(fadeBackground);
+  const [disabled, setDisabled] = useState(false);
+
+  const deleteEvent = async () => {
+    setDisabled(!disabled);
+    try {
+      const { status } = await Calendar.requestCalendarPermissionsAsync();
+      if (status === "granted") {
+        Calendar.deleteEventAsync(eventId);
+        console.log(`Event updated.`);
+        Alert.alert("Shift deleted!", "", [
+          { text: "OK", onPress: () => toggleModal() },
+        ]);
+      }
+    } catch (error) {
+      Alert.alert(error.message);
+    }
+  };
+
   return (
     <Modal
       style={styles.modalBox}
@@ -28,13 +44,21 @@ const ConfirmDeleteModal = ({
       animationType="fade"
     >
       <View style={styles.modal}>
-        <MonoText style={styles.title}>Delete OT for {date}?</MonoText>
-        <TouchableHighlight style={styles.deleteButton}>
-          <MonoText style={styles.deleteText}>Delete</MonoText>
-        </TouchableHighlight>
-        <TouchableHighlight style={styles.cancelButton} onPress={toggleModal}>
-          <MonoText style={styles.cancelText}>Cancel</MonoText>
-        </TouchableHighlight>
+        <View>
+          <MonoText style={styles.title}>Delete {date}?</MonoText>
+        </View>
+        <View style={styles.buttonContainer}>
+          <TouchableOpacity
+            disabled={disabled}
+            onPress={deleteEvent}
+            style={styles.deleteButton}
+          >
+            <MonoText style={styles.deleteText}>Delete</MonoText>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.cancelButton} onPress={toggleModal}>
+            <MonoText style={styles.cancelText}>Cancel</MonoText>
+          </TouchableOpacity>
+        </View>
       </View>
     </Modal>
   );
@@ -51,7 +75,7 @@ const styles = StyleSheet.create({
   },
   modal: {
     position: "absolute",
-    justifyContent: "center",
+    justifyContent: "space-evenly",
     alignItems: "center",
     left: "50%",
     marginLeft: -163,
@@ -70,12 +94,49 @@ const styles = StyleSheet.create({
     shadowRadius: 4,
     elevation: 5,
   },
+  buttonContainer: {
+    flexDirection: "row",
+    justifyContent: "space-evenly",
+    width: "100%",
+  },
   deleteText: {
     color: "white",
     fontSize: 16,
   },
-  deleteButton: { padding: 10, backgroundColor: theme.button },
-  cancelButton: { padding: 10, backgroundColor: theme.modalButton },
+  deleteButton: {
+    padding: 10,
+    backgroundColor: theme.button,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5,
+    height: 60,
+    width: 135,
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: 3,
+  },
+  cancelButton: {
+    padding: 10,
+    backgroundColor: theme.modalButton,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5,
+    height: 60,
+    width: 135,
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: 3,
+  },
   cancelText: {
     color: "white",
     fontSize: 16,

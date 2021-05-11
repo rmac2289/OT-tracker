@@ -3,33 +3,37 @@ import { View, Modal, StyleSheet, TouchableOpacity, Alert } from "react-native";
 import * as Calendar from "expo-calendar";
 import DateTimePicker from "@react-native-community/datetimepicker";
 import { Event } from "../types";
-import { calendar_id } from "../config";
 import { MonoText } from "./StyledText";
 import { theme } from "../constants/Colors";
 
 interface Props {
-  isModalOpen: boolean;
-  toggleModal: () => void;
+  showUpdateModal: boolean;
+  toggleUpdateModal: () => void;
+  eventId: string;
 }
 
-const AddOtModal = ({ isModalOpen, toggleModal }: Props) => {
+const UpdateOtModal = ({
+  showUpdateModal,
+  toggleUpdateModal,
+  eventId,
+}: Props) => {
   const [startDate, setStartDate] = useState<Date>(new Date());
   const [endDate, setEndDate] = useState<Date>(new Date());
   const [disabled, setDisabled] = useState(false);
 
-  const addEvent = async () => {
+  const updateEvent = async () => {
     setDisabled(true);
+
     try {
       const { status } = await Calendar.requestCalendarPermissionsAsync();
       if (status === "granted") {
-        const newEvent = await Calendar.createEventAsync(calendar_id, {
-          title: "Ross Forced OT",
+        const updatedEvent = await Calendar.updateEventAsync(eventId, {
           startDate: startDate,
           endDate: endDate,
         });
-        console.log(`Event ${newEvent} created.`);
-        Alert.alert(`Shift added!`, "", [
-          { text: "OK", onPress: () => toggleModal() },
+        console.log(`Event ${updatedEvent} updated.`);
+        Alert.alert(`Shift updated!`, "", [
+          { text: "OK", onPress: () => toggleUpdateModal() },
         ]);
         setDisabled(false);
       }
@@ -51,12 +55,12 @@ const AddOtModal = ({ isModalOpen, toggleModal }: Props) => {
     <Modal
       presentationStyle="overFullScreen"
       animationType="slide"
-      visible={isModalOpen}
+      visible={showUpdateModal}
       transparent={true}
     >
       <View style={styles.modalView}>
         <View style={styles.dateInputs}>
-          <MonoText style={styles.title}>New Shift</MonoText>
+          <MonoText style={styles.title}>Update Shift</MonoText>
           <View style={styles.individualInput}>
             <MonoText style={styles.dateText}>From</MonoText>
 
@@ -87,11 +91,14 @@ const AddOtModal = ({ isModalOpen, toggleModal }: Props) => {
           <TouchableOpacity
             disabled={disabled}
             style={styles.addShiftButton}
-            onPress={addEvent}
+            onPress={updateEvent}
           >
-            <MonoText style={styles.buttonText}>Add Shift</MonoText>
+            <MonoText style={styles.buttonText}>Update Shift</MonoText>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.closeButton} onPress={toggleModal}>
+          <TouchableOpacity
+            style={styles.closeButton}
+            onPress={toggleUpdateModal}
+          >
             <MonoText style={styles.buttonText}>Cancel</MonoText>
           </TouchableOpacity>
         </View>
@@ -183,4 +190,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default AddOtModal;
+export default UpdateOtModal;

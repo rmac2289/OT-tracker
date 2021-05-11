@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { StyleSheet, ScrollView } from "react-native";
+import { StyleSheet, ScrollView, ActivityIndicator, View } from "react-native";
 import * as Calendar from "expo-calendar";
 import CalendarItem from "./CalendarItem";
 import { calendar_id } from "../config";
 import { formatDate } from "../lib/formatDate";
+import { theme } from "../constants/Colors";
 
 const ItemList = () => {
   const [workday, setWorkday] = useState<Calendar.Event[]>([]);
@@ -25,21 +26,28 @@ const ItemList = () => {
         setWorkday(filtered);
       }
     })();
-  }, []);
+  }, [workday]);
 
   return (
     <ScrollView style={styles.scrollview}>
-      {workday.map((event: Calendar.Event, index: number) => {
-        return (
-          <CalendarItem
-            key={index}
-            dateDay={formatDate(new Date(event.startDate), 0, 3)}
-            dateMonth={formatDate(new Date(event.startDate), 4, 10)}
-            dateTimeStart={formatDate(new Date(event.startDate), 16, 21)}
-            dateTimeEnd={formatDate(new Date(event.endDate), 16, 21)}
-          />
-        );
-      })}
+      {!workday.length ? (
+        <View style={styles.indicator}>
+          <ActivityIndicator color={theme.button} size="large" />
+        </View>
+      ) : (
+        workday.map((event: Calendar.Event, index: number) => {
+          return (
+            <CalendarItem
+              key={index}
+              eventId={event.id}
+              dateDay={formatDate(new Date(event.startDate), 0, 3)}
+              dateMonth={formatDate(new Date(event.startDate), 4, 10)}
+              dateTimeStart={formatDate(new Date(event.startDate), 16, 21)}
+              dateTimeEnd={formatDate(new Date(event.endDate), 16, 21)}
+            />
+          );
+        })
+      )}
     </ScrollView>
   );
 };
@@ -50,6 +58,16 @@ const styles = StyleSheet.create({
   },
   scrollview: {
     width: "100%",
+    position: "relative",
+  },
+  indicator: {
+    position: "absolute",
+    height: 100,
+    width: 100,
+    top: "50%",
+    left: "50%",
+    marginLeft: -50,
+    marginTop: 100,
   },
 });
 
