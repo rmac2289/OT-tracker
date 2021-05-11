@@ -26,10 +26,11 @@ export const theme = {
   itembackground: "white",
   itemtext: "#362247",
   itemborder: "#362247",
-  tabactive: "#564f6f",
+  tabactive: "#a4545f",
   tabinactive: "#2d283e",
   shadow: "#000",
   tabicon: "#f5f3f4",
   tablabel: "#f5f3f4",
   gradientstart: "#dadadf",
+  iconbackground: "#564f6f",
 };

@@ -1,7 +1,8 @@
-import React from "react";
-import { View, StyleSheet } from "react-native";
+import React, { useState } from "react";
+import { View, StyleSheet, Text } from "react-native";
 import { theme } from "../constants/Colors";
 import { MonoText } from "./StyledText";
+import ItemButton from "./ItemButton";
 
 interface Props {
   dateDay: string;
@@ -17,13 +18,18 @@ const CalendarItem = ({
   dateTimeEnd,
 }: Props) => {
   return (
-    <View style={styles.otDay}>
-      <MonoText style={styles.text}>
-        {dateDay}, {dateMonth}
-      </MonoText>
-      <MonoText style={styles.text}>
-        {dateTimeStart} to {dateTimeEnd}
-      </MonoText>
+    <View>
+      <View style={styles.otDay}>
+        <View>
+          <MonoText style={styles.text}>
+            {dateDay}, {dateMonth}
+          </MonoText>
+          <MonoText style={styles.text}>
+            {dateTimeStart} to {dateTimeEnd}
+          </MonoText>
+        </View>
+        <ItemButton />
+      </View>
     </View>
   );
 };
@@ -52,6 +58,7 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 20,
     color: theme.itemtext,
+    padding: 3,
   },
 });
 

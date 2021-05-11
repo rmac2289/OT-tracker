@@ -96,7 +96,7 @@ const AddOtModal = ({ isModalOpen, toggleModal }: Props) => {
 const styles = StyleSheet.create({
   modalView: {
     margin: 20,
-    backgroundColor: theme.background,
+    backgroundColor: "rgba(45, 40, 62,0.9)",
     borderRadius: 5,
     padding: 35,
     shadowColor: "#000",
@@ -117,7 +117,7 @@ const styles = StyleSheet.create({
     fontWeight: "500",
     width: "100%",
     textAlign: "left",
-    color: theme.itemtext,
+    color: "white",
   },
   dateInputs: {
     display: "flex",
@@ -131,7 +131,7 @@ const styles = StyleSheet.create({
   dateText: {
     fontSize: 18,
     fontWeight: "700",
-    color: theme.itemtext,
+    color: "white",
   },
   closeButton: {
     width: "100%",
