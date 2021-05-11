@@ -96,7 +96,7 @@ const AddOtModal = ({ isModalOpen, toggleModal }: Props) => {
 const styles = StyleSheet.create({
   modalView: {
     margin: 20,
-    backgroundColor: "rgba(45, 40, 62,0.9)",
+    backgroundColor: theme.modalBackground,
     borderRadius: 5,
     padding: 35,
     shadowColor: "#000",

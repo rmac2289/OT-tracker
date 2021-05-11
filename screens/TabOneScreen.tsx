@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Dimensions, StyleSheet, View, Text } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import AddOtModal from "../components/AddOtModal";
@@ -7,14 +7,20 @@ import { MonoText } from "../components/StyledText";
 import { Ionicons } from "@expo/vector-icons";
 import { theme } from "../constants/Colors";
 import { LinearGradient } from "expo-linear-gradient";
+import { ModalContext } from "../context/modalContext";
 
 export default function TabOneScreen() {
   const [modalOpen, setModalOpen] = useState(false);
+  const [fadeBackground, setFadeBackground] = useContext(ModalContext);
+
   const toggleModal = () => {
     setModalOpen(!modalOpen);
+    setFadeBackground(!fadeBackground);
   };
   return (
-    <View style={modalOpen ? styles.containerBackground : styles.container}>
+    <View
+      style={fadeBackground ? styles.containerBackground : styles.container}
+    >
       <LinearGradient
         style={styles.gradient}
         colors={[theme.gradientstart, theme.background]}

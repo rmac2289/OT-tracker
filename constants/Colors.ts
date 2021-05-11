@@ -25,6 +25,7 @@ export const theme = {
   titletext: "#362247",
   itembackground: "white",
   itemtext: "#362247",
+  modalButton: "#362247",
   itemborder: "#362247",
   tabactive: "#a4545f",
   tabinactive: "#2d283e",
@@ -33,4 +34,5 @@ export const theme = {
   tablabel: "#f5f3f4",
   gradientstart: "#dadadf",
   iconbackground: "#564f6f",
+  modalBackground: "rgba(45, 40, 62,0.9)",
 };

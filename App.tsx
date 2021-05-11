@@ -5,6 +5,7 @@ import { SafeAreaProvider } from "react-native-safe-area-context";
 import useCachedResources from "./hooks/useCachedResources";
 import useColorScheme from "./hooks/useColorScheme";
 import Navigation from "./navigation";
+import { ModalContextProvider } from "./context/modalContext";
 
 export default function App() {
   const isLoadingComplete = useCachedResources();
@@ -14,10 +15,12 @@ export default function App() {
     return null;
   } else {
     return (
-      <SafeAreaProvider style={{ backgroundColor: "lightgrey" }}>
-        <Navigation colorScheme={colorScheme} />
-        <StatusBar />
-      </SafeAreaProvider>
+      <ModalContextProvider>
+        <SafeAreaProvider style={{ backgroundColor: "lightgrey" }}>
+          <Navigation colorScheme={colorScheme} />
+          <StatusBar />
+        </SafeAreaProvider>
+      </ModalContextProvider>
     );
   }
 }

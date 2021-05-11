@@ -9,6 +9,7 @@ interface Props {
   dateMonth: string;
   dateTimeStart: string;
   dateTimeEnd: string;
+  eventId: string;
 }
 
 const CalendarItem = ({
@@ -16,6 +17,7 @@ const CalendarItem = ({
   dateMonth,
   dateTimeStart,
   dateTimeEnd,
+  eventId,
 }: Props) => {
   return (
     <View>
@@ -28,7 +30,7 @@ const CalendarItem = ({
             {dateTimeStart} to {dateTimeEnd}
           </MonoText>
         </View>
-        <ItemButton />
+        <ItemButton eventId={eventId} date={`${dateDay}, ${dateMonth}`} />
       </View>
     </View>
   );

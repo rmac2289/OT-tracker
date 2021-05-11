@@ -32,6 +32,7 @@ const ItemList = () => {
         return (
           <CalendarItem
             key={index}
+            eventId={event.id}
             dateDay={formatDate(new Date(event.startDate), 0, 3)}
             dateMonth={formatDate(new Date(event.startDate), 4, 10)}
             dateTimeStart={formatDate(new Date(event.startDate), 16, 21)}
