@@ -38,6 +38,7 @@ const ItemList = () => {
         workday.map((event: Calendar.Event, index: number) => {
           return (
             <CalendarItem
+              title={event.title}
               key={index}
               eventId={event.id}
               dateDay={formatDate(new Date(event.startDate), 0, 3)}

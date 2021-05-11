@@ -10,6 +10,7 @@ interface Props {
   dateTimeStart: string;
   dateTimeEnd: string;
   eventId: string;
+  title?: string;
 }
 
 const CalendarItem = ({
@@ -18,10 +19,11 @@ const CalendarItem = ({
   dateTimeStart,
   dateTimeEnd,
   eventId,
+  title,
 }: Props) => {
   return (
     <View>
-      <View style={styles.otDay}>
+      <View style={title === "Ross Work" ? styles.regDay : styles.otDay}>
         <View>
           <MonoText style={styles.text}>
             {dateDay}, {dateMonth}
@@ -41,6 +43,24 @@ const styles = StyleSheet.create({
     padding: 15,
     borderColor: theme.itemborder,
     borderWidth: 2,
+    margin: 5,
+    marginLeft: 10,
+    marginRight: 10,
+    backgroundColor: theme.itembackground,
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    shadowColor: theme.shadow,
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5,
+  },
+  regDay: {
+    padding: 15,
     margin: 5,
     marginLeft: 10,
     marginRight: 10,

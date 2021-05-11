@@ -35,7 +35,6 @@ const ConfirmDeleteModal = ({
       Alert.alert(error.message);
     }
   };
-
   return (
     <Modal
       style={styles.modalBox}
