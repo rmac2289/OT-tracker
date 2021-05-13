@@ -21,7 +21,7 @@ const ConfirmDeleteModal = ({
   const [disabled, setDisabled] = useState(false);
 
   const deleteEvent = async () => {
-    setDisabled(!disabled);
+    setDisabled(true);
     try {
       const { status } = await Calendar.requestCalendarPermissionsAsync();
       if (status === "granted") {
@@ -30,9 +30,11 @@ const ConfirmDeleteModal = ({
         Alert.alert("Shift deleted!", "", [
           { text: "OK", onPress: () => toggleModal() },
         ]);
+        setDisabled(false);
       }
     } catch (error) {
       Alert.alert(error.message);
+      setDisabled(false);
     }
   };
   return (

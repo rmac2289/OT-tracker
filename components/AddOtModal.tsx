@@ -30,11 +30,13 @@ const AddOtModal = ({ isModalOpen, toggleModal }: Props) => {
         console.log(`Event ${newEvent} created.`);
         Alert.alert(`Shift added!`, "", [
           { text: "OK", onPress: () => toggleModal() },
+          { text: "Add More", onPress: () => null },
         ]);
         setDisabled(false);
       }
     } catch (error) {
       Alert.alert(error.message);
+      setDisabled(false);
     }
   };
 
