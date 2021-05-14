@@ -1,0 +1,551 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<View>
+  <View
+    style={
+      Object {
+        "backgroundColor": "white",
+        "borderColor": "#362247",
+        "borderWidth": 2,
+        "display": "flex",
+        "elevation": 5,
+        "flexDirection": "row",
+        "justifyContent": "space-between",
+        "margin": 5,
+        "marginLeft": 10,
+        "marginRight": 10,
+        "padding": 15,
+        "shadowColor": "#000",
+        "shadowOffset": Object {
+          "height": 2,
+          "width": 0,
+        },
+        "shadowOpacity": 0.25,
+        "shadowRadius": 4,
+      }
+    }
+  >
+    <View>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#000",
+            },
+            Array [
+              Object {
+                "color": "#362247",
+                "fontSize": 20,
+                "padding": 3,
+              },
+              Object {
+                "fontFamily": "Menlo",
+              },
+            ],
+          ]
+        }
+      >
+        , 
+      </Text>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#000",
+            },
+            Array [
+              Object {
+                "color": "#362247",
+                "fontSize": 20,
+                "padding": 3,
+              },
+              Object {
+                "fontFamily": "Menlo",
+              },
+            ],
+          ]
+        }
+      >
+         to 
+      </Text>
+    </View>
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "display": "flex",
+          "flexDirection": "row",
+          "justifyContent": "space-between",
+        }
+      }
+    >
+      <RNGestureHandlerButton
+        collapsable={false}
+        onGestureEvent={[Function]}
+        onGestureHandlerEvent={[Function]}
+        onGestureHandlerStateChange={[Function]}
+        onHandlerStateChange={[Function]}
+        rippleColor={0}
+      >
+        <View
+          accessible={true}
+          style={
+            Object {
+              "alignItems": "center",
+              "borderRadius": 25,
+              "height": 50,
+              "justifyContent": "center",
+              "opacity": 1,
+              "width": 50,
+            }
+          }
+        >
+          <View>
+            <Text />
+          </View>
+        </View>
+      </RNGestureHandlerButton>
+      <RNGestureHandlerButton
+        collapsable={false}
+        onGestureEvent={[Function]}
+        onGestureHandlerEvent={[Function]}
+        onGestureHandlerStateChange={[Function]}
+        onHandlerStateChange={[Function]}
+        rippleColor={0}
+      >
+        <View
+          accessible={true}
+          style={
+            Object {
+              "alignItems": "center",
+              "borderRadius": 25,
+              "height": 50,
+              "justifyContent": "center",
+              "opacity": 1,
+              "width": 50,
+            }
+          }
+        >
+          <View>
+            <Text />
+          </View>
+        </View>
+      </RNGestureHandlerButton>
+      <Modal
+        animationType="fade"
+        hardwareAccelerated={false}
+        style={
+          Object {
+            "position": "relative",
+          }
+        }
+        transparent={true}
+        visible={false}
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "rgba(45, 40, 62,0.9)",
+              "borderRadius": 3,
+              "elevation": 5,
+              "height": 200,
+              "justifyContent": "space-evenly",
+              "left": "50%",
+              "marginLeft": -163,
+              "marginTop": -100,
+              "position": "absolute",
+              "shadowColor": "#000",
+              "shadowOffset": Object {
+                "height": 2,
+                "width": 0,
+              },
+              "shadowOpacity": 0.25,
+              "shadowRadius": 4,
+              "top": "50%",
+              "width": 326,
+            }
+          }
+        >
+          <View>
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#000",
+                  },
+                  Array [
+                    Object {
+                      "color": "white",
+                      "fontSize": 20,
+                      "margin": 10,
+                    },
+                    Object {
+                      "fontFamily": "Menlo",
+                    },
+                  ],
+                ]
+              }
+            >
+              Delete 
+              undefined, undefined
+              ?
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+                "justifyContent": "space-evenly",
+                "width": "100%",
+              }
+            }
+          >
+            <RNGestureHandlerButton
+              collapsable={false}
+              onGestureEvent={[Function]}
+              onGestureHandlerEvent={[Function]}
+              onGestureHandlerStateChange={[Function]}
+              onHandlerStateChange={[Function]}
+              rippleColor={0}
+            >
+              <View
+                accessible={true}
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "backgroundColor": "#a4545f",
+                    "borderRadius": 3,
+                    "elevation": 5,
+                    "height": 60,
+                    "justifyContent": "center",
+                    "opacity": 1,
+                    "padding": 10,
+                    "shadowColor": "#000",
+                    "shadowOffset": Object {
+                      "height": 2,
+                      "width": 0,
+                    },
+                    "shadowOpacity": 0.25,
+                    "shadowRadius": 4,
+                    "width": 135,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#000",
+                      },
+                      Array [
+                        Object {
+                          "color": "white",
+                          "fontSize": 16,
+                        },
+                        Object {
+                          "fontFamily": "Menlo",
+                        },
+                      ],
+                    ]
+                  }
+                >
+                  Delete
+                </Text>
+              </View>
+            </RNGestureHandlerButton>
+            <RNGestureHandlerButton
+              collapsable={false}
+              onGestureEvent={[Function]}
+              onGestureHandlerEvent={[Function]}
+              onGestureHandlerStateChange={[Function]}
+              onHandlerStateChange={[Function]}
+              rippleColor={0}
+            >
+              <View
+                accessible={true}
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "backgroundColor": "#362247",
+                    "borderRadius": 3,
+                    "elevation": 5,
+                    "height": 60,
+                    "justifyContent": "center",
+                    "opacity": 1,
+                    "padding": 10,
+                    "shadowColor": "#000",
+                    "shadowOffset": Object {
+                      "height": 2,
+                      "width": 0,
+                    },
+                    "shadowOpacity": 0.25,
+                    "shadowRadius": 4,
+                    "width": 135,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#000",
+                      },
+                      Array [
+                        Object {
+                          "color": "white",
+                          "fontSize": 16,
+                        },
+                        Object {
+                          "fontFamily": "Menlo",
+                        },
+                      ],
+                    ]
+                  }
+                >
+                  Cancel
+                </Text>
+              </View>
+            </RNGestureHandlerButton>
+          </View>
+        </View>
+      </Modal>
+      <Modal
+        animationType="slide"
+        hardwareAccelerated={false}
+        presentationStyle="overFullScreen"
+        transparent={true}
+        visible={false}
+      >
+        <View
+          style={
+            Object {
+              "backgroundColor": "rgba(45, 40, 62,0.9)",
+              "borderRadius": 5,
+              "elevation": 5,
+              "height": "60%",
+              "justifyContent": "space-between",
+              "margin": 20,
+              "marginBottom": "auto",
+              "marginTop": "auto",
+              "padding": 35,
+              "shadowColor": "#000",
+              "shadowOffset": Object {
+                "height": 2,
+                "width": 0,
+              },
+              "shadowOpacity": 0.25,
+              "shadowRadius": 4,
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "display": "flex",
+                "justifyContent": "center",
+              }
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#000",
+                  },
+                  Array [
+                    Object {
+                      "color": "white",
+                      "fontSize": 22,
+                      "fontWeight": "500",
+                      "textAlign": "left",
+                      "width": "100%",
+                    },
+                    Object {
+                      "fontFamily": "Menlo",
+                    },
+                  ],
+                ]
+              }
+            >
+              Update Shift
+            </Text>
+            <View
+              style={
+                Object {
+                  "marginTop": 20,
+                  "width": "100%",
+                }
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#000",
+                    },
+                    Array [
+                      Object {
+                        "color": "white",
+                        "fontSize": 18,
+                        "fontWeight": "700",
+                      },
+                      Object {
+                        "fontFamily": "Menlo",
+                      },
+                    ],
+                  ]
+                }
+              >
+                From
+              </Text>
+            </View>
+            <View
+              style={
+                Object {
+                  "marginTop": 20,
+                  "width": "100%",
+                }
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#000",
+                    },
+                    Array [
+                      Object {
+                        "color": "white",
+                        "fontSize": 18,
+                        "fontWeight": "700",
+                      },
+                      Object {
+                        "fontFamily": "Menlo",
+                      },
+                    ],
+                  ]
+                }
+              >
+                To
+              </Text>
+            </View>
+          </View>
+          <View>
+            <View
+              accessible={true}
+              focusable={true}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#362247",
+                  "borderRadius": 3,
+                  "elevation": 5,
+                  "height": 60,
+                  "justifyContent": "center",
+                  "marginTop": 10,
+                  "opacity": 1,
+                  "padding": 5,
+                  "shadowColor": "#000",
+                  "shadowOffset": Object {
+                    "height": 2,
+                    "width": 0,
+                  },
+                  "shadowOpacity": 0.25,
+                  "shadowRadius": 4,
+                  "width": "100%",
+                }
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#000",
+                    },
+                    Array [
+                      Object {
+                        "color": "white",
+                        "fontSize": 20,
+                        "fontWeight": "700",
+                      },
+                      Object {
+                        "fontFamily": "Menlo",
+                      },
+                    ],
+                  ]
+                }
+              >
+                Update Shift
+              </Text>
+            </View>
+            <View
+              accessible={true}
+              focusable={true}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#a4545f",
+                  "borderRadius": 3,
+                  "elevation": 5,
+                  "height": 60,
+                  "justifyContent": "center",
+                  "marginTop": 10,
+                  "opacity": 1,
+                  "padding": 5,
+                  "shadowColor": "#000",
+                  "shadowOffset": Object {
+                    "height": 2,
+                    "width": 0,
+                  },
+                  "shadowOpacity": 0.25,
+                  "shadowRadius": 4,
+                  "width": "100%",
+                }
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#000",
+                    },
+                    Array [
+                      Object {
+                        "color": "white",
+                        "fontSize": 20,
+                        "fontWeight": "700",
+                      },
+                      Object {
+                        "fontFamily": "Menlo",
+                      },
+                    ],
+                  ]
+                }
+              >
+                Cancel
+              </Text>
+            </View>
+          </View>
+        </View>
+      </Modal>
+    </View>
+  </View>
+</View>
+`;
