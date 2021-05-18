@@ -1,5 +1,5 @@
 import React from "react";
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet, Text } from "react-native";
 import { theme } from "../constants/Colors";
 import { MonoText } from "./StyledText";
 import ItemButton from "./ItemButton";
@@ -58,6 +58,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 4,
     elevation: 5,
+    position: "relative",
   },
   regDay: {
     padding: 15,
@@ -76,6 +77,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 4,
     elevation: 5,
+    position: "relative",
   },
   text: {
     fontSize: 20,

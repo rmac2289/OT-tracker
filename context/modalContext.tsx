@@ -1,8 +1,8 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, SetStateAction, useState } from "react";
 
 interface Props {}
 
-export const ModalContext = createContext<any>(null);
+export const ModalContext = createContext<unknown>(null);
 
 export const ModalContextProvider = ({
   children,
