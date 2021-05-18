@@ -22,10 +22,10 @@ Functionality includes adding, updating and deleting shifts from the calendar. T
 
 ## Screenshots
 
-<img src="./assets/images/home.png" alt="OT Screenshot" width="200">
-<img src="./assets/images/new.png" alt="OT Screenshot" width="200">
-<img src="./assets/images/datetime.png" alt="OT Screenshot" width="200">
-<img src="./assets/images/added.png" alt="OT Screenshot" width="200">
-<img src="./assets/images/delete.png" alt="OT Screenshot" width="200">
-<img src="./assets/images/all.png" alt="OT Screenshot" width="200">
-<img src="./assets/images/update.png" alt="OT Screenshot" width="200">
+<img src="./assets/images/home.png" alt="OT Screenshot" width="400">
+<img src="./assets/images/new.png" alt="OT Screenshot" width="400">
+<img src="./assets/images/datetime.png" alt="OT Screenshot" width="400">
+<img src="./assets/images/added.png" alt="OT Screenshot" width="400">
+<img src="./assets/images/delete.png" alt="OT Screenshot" width="400">
+<img src="./assets/images/all.png" alt="OT Screenshot" width="400">
+<img src="./assets/images/update.png" alt="OT Screenshot" width="400">
